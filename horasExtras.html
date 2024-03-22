@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<body>
+
+    <div class="container">
+        <div class="container__conteudo">
+            <div class="container__informacoes">
+                <div class="container__texto">
+                    <h1>Calculadora de Hora Extra</h1>
+                    <p class="texto__paragrafo">Preencha os dados abaixo:</p>
+                </div>
+              
+                  <label>Salário</label>
+                   <input type="number" min="1" max="999.999,99" step="0.01" id="salario" class="container__input">
+                <br>
+                 <label>Jornada</label>
+                   <input type="number" min="1" max="999" id="jornada" class="container__input">
+                 <br>
+                    <label>Quantidade de Horas Extras</label>
+                   <input type="number" min="1" max="9999" id="horas" class="container__input">
+                 <br>
+                    <label>Percentual</label>
+                   <input type="number" min="1" max="999" id="percentual" class="container__input">
+                
+                 <br>
+                <div class="calculo container__botoes">
+                    <button onclick="calculaHoraExtra()" id="calculo" class="container__botao">Calcular</button>
+                </div>        
+
+    <script src="app.js" defer></script>
+</body>
+
+<script>
+ 
+
+function calculaHoraExtra() {
+    let salIntegral = document.getElementById('salario');
+    let jornada = document.getElementById('jornada');
+    let qntdadeHoras = document.getElementById('horas');
+    let percentual = document.getElementById('percentual');
+    let valSalIntegral = salIntegral.value;
+    let valJornada = jornada.value;
+    let valHoras = qntdadeHoras.value;
+    let valPercentual = percentual.value;
+
+    let calculaHoraExtra =((valSalIntegral/valJornada)*valHoras*valPercentual/100);
+    alert("O valor da hora extra é "+calculaHoraExtra);
+    salIntegral.value="";
+    salIntegral.focus();
+    jornada.value="";
+    qntdadeHoras.value="";
+    percentual.value="";
+}
+
+    var button = document.getElementById('calculo');
+    button.onclick = calculaHoraExtra;
+
+    
+
+
+</script>
